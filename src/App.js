@@ -1,26 +1,50 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import Projects from './Projects';
+import SocialPorfiles from './SocialProfiles';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+    state = { counter: 0, displayBio: false };
+
+    // helper method
+    // addCounter = () => {
+    //     this.setState({ counter: this.state.counter + 1 });
+    //     console.log('this', this);
+    // }
+
+    toggleDisplayBio = () => {
+        this.setState({ displayBio: !this.state.displayBio });
+    }
+
+    render() {
+        return (
+            <div>
+                <h1>Meu portfolio!!</h1>
+                <p>Olá, meu nome é Elton!</p>
+                <hr />
+                {
+                    this.state.displayBio ? (
+                        <div>
+                            <p>Eu moro em Blumenau/SC.</p>
+                            <p>Eu sou Analista de Sistemas na Linx S.A.</p>
+                            <p>Esse é o meu primeiro app de exemplo para o treinamento de react!</p>
+                            <p>Além de programar, eu também gosto de ouvir música.</p>
+                            <button onClick={this.toggleDisplayBio}>Ver menos</button>
+                        </div>
+                    ) : (
+                        <div>
+                           <button onClick={this.toggleDisplayBio}>Ver mais</button> 
+                        </div>
+                    )
+                }
+                {/* <p>{this.state.counter}</p>
+                <button onClick={this.addCounter}>AddCounter</button> */}
+                <hr />
+                <Projects />
+                <hr />
+                <SocialPorfiles />
+            </div>
+        )
+    }
 }
 
 export default App;
