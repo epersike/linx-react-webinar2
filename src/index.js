@@ -1,11 +1,42 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 // Import padrão do documento src/App.js
 import App from './App';
+import Joke from './Jokes';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import './index.css';
+
+
+ReactDOM.render(
+    <BrowserRouter>
+        <Switch>
+            <Route path='/' exact={true} component={App}></Route>
+            <Route path='/jokes' component={Joke} ></Route>
+        </Switch>
+    </BrowserRouter>, 
+    document.getElementById('root'));
+console.log('renderizou');
+// function papaiNoelChegou() {
+
+//     const p = new Promise( (resolve, reject) => {
+//         setTimeout( () => {
+//             console.log('ho1')
+//             resolve();
+//         }, 2000);
+//     }).then( () => {
+//         console.log("Passou no resolve")
+//     }, () => {
+//         console.log("Passou no reject!")
+//     }).finally(() => {
+//         console.log("passou no finally");
+//     });
+//     console.log('ho2');
+//     console.log('ho3');
+// }
+
+// papaiNoelChegou();
 
 // class Animal {
 //     constructor(nome) {

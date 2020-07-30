@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import Projects from './Projects';
 import SocialPorfiles from './SocialProfiles';
+import Title from './Title';
+import Joke from './Jokes';
+import Header from './Header';
 
 import profile from './assets/profile.png';
 
@@ -18,11 +21,14 @@ class App extends Component {
     }
 
     render() {
+        console.log("render do App");
         return (
             <div>
+                <Header />
                 <img src={profile} className='profile' />
                 <h1>Meu portfolio!!</h1>
                 <p>Olá, meu nome é Elton!</p>
+                <Title />
                 <hr />
                 {
                     this.state.displayBio ? (
