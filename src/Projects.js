@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import PROJECTS from './data/projects';
 
 class Project extends Component {
+
     render() {
         const { title, image, description, link } = this.props.project;
 
@@ -14,6 +15,7 @@ class Project extends Component {
             </div>
         )
     }
+    
 }
 
 class Projects extends Component {

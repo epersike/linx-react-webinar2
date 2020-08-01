@@ -5,6 +5,8 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 // Import padrão do documento src/App.js
 import App from './App';
 import Joke from './Jokes';
+import Header from './Header';
+import EvensOrOdds from './projects/evens-or-odds/src';
 
 import './index.css';
 
@@ -12,8 +14,11 @@ import './index.css';
 ReactDOM.render(
     <BrowserRouter>
         <Switch>
-            <Route path='/' exact={true} component={App}></Route>
-            <Route path='/jokes' component={Joke} ></Route>
+            {/* <Route path='/' exact={true} component={App}></Route>
+            <Route path='/jokes' component={Joke} ></Route> */}
+            <Route path='/' exact={true} render={() => <Header><App /></Header>}></Route>
+            <Route path='/jokes' exact={true} render={() => <Header><Joke /></Header>}></Route>
+            <Route path='/evensorodds' exact={true} render={() => <Header><EvensOrOdds /></Header>}></Route>
         </Switch>
     </BrowserRouter>, 
     document.getElementById('root'));
